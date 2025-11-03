@@ -20,4 +20,14 @@ public class HRCalculatorTest {
         assertThrows(IllegalArgumentException.class, () -> HRCalculator.calculateMaxHR(-1));
     }
 
+    @Test
+    public void testWorkoutZones() {
+        assertEquals("Below Zone", HRCalculator.getWorkoutZone(30, 90));   // ~45%
+        assertEquals("Warm-up", HRCalculator.getWorkoutZone(30, 105));     // ~52%
+        assertEquals("Fat Burn", HRCalculator.getWorkoutZone(30, 120));    // ~60%
+        assertEquals("Cardio", HRCalculator.getWorkoutZone(30, 140));      // ~70%
+        assertEquals("Anaerobic", HRCalculator.getWorkoutZone(30, 160));   // ~80%
+        assertEquals("Maximum Effort", HRCalculator.getWorkoutZone(30, 180)); // ~90%
+    }
+
 }
